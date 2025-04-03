@@ -1,0 +1,140 @@
+[0.000000] (-) TimerEvent: {}
+[0.001603] (rplidar_ros) JobQueued: {'identifier': 'rplidar_ros', 'dependencies': OrderedDict()}
+[0.002122] (rplidar_ros) JobStarted: {'identifier': 'rplidar_ros'}
+[0.064014] (rplidar_ros) JobProgress: {'identifier': 'rplidar_ros', 'progress': 'cmake'}
+[0.070207] (rplidar_ros) JobProgress: {'identifier': 'rplidar_ros', 'progress': 'build'}
+[0.076571] (rplidar_ros) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/build/rplidar_ros', '--', '-j4', '-l4'], 'cwd': '/home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/build/rplidar_ros', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'KDAIL-Rpi'), ('SSH_CLIENT', '10.99.74.239 55902 22'), ('XDG_SESSION_TYPE', 'tty'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/KDAIL-Rpi'), ('OLDPWD', '/home/KDAIL-Rpi'), ('SSH_TTY', '/dev/pts/0'), ('ROS_PYTHON_VERSION', '3'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'KDAIL-Rpi'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '6'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/KDAIL-Rpi/.local/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', 'localhost:10.0'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('PWD', '/home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/build/rplidar_ros'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '10.99.74.239 55902 10.99.74.83 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.099604] (-) TimerEvent: {}
+[0.204476] (-) TimerEvent: {}
+[0.305838] (-) TimerEvent: {}
+[0.395007] (rplidar_ros) StdoutLine: {'line': b'-- Found ament_cmake_auto: 1.3.11 (/opt/ros/humble/share/ament_cmake_auto/cmake)\n'}
+[0.406071] (-) TimerEvent: {}
+[0.507225] (-) TimerEvent: {}
+[0.608537] (-) TimerEvent: {}
+[0.709778] (-) TimerEvent: {}
+[0.811085] (-) TimerEvent: {}
+[0.912175] (-) TimerEvent: {}
+[1.012801] (-) TimerEvent: {}
+[1.113480] (-) TimerEvent: {}
+[1.214585] (-) TimerEvent: {}
+[1.316064] (-) TimerEvent: {}
+[1.417359] (-) TimerEvent: {}
+[1.518830] (-) TimerEvent: {}
+[1.570754] (rplidar_ros) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)\n'}
+[1.619091] (-) TimerEvent: {}
+[1.720269] (-) TimerEvent: {}
+[1.821613] (-) TimerEvent: {}
+[1.922868] (-) TimerEvent: {}
+[2.024116] (-) TimerEvent: {}
+[2.125420] (-) TimerEvent: {}
+[2.226732] (-) TimerEvent: {}
+[2.328025] (-) TimerEvent: {}
+[2.428720] (-) TimerEvent: {}
+[2.529400] (-) TimerEvent: {}
+[2.555421] (rplidar_ros) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[2.572748] (rplidar_ros) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[2.610223] (rplidar_ros) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[2.629612] (-) TimerEvent: {}
+[2.666139] (rplidar_ros) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[2.729776] (-) TimerEvent: {}
+[2.735236] (rplidar_ros) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[2.829952] (-) TimerEvent: {}
+[2.921226] (rplidar_ros) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[2.930116] (-) TimerEvent: {}
+[2.931854] (rplidar_ros) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[3.030280] (-) TimerEvent: {}
+[3.130946] (-) TimerEvent: {}
+[3.231605] (-) TimerEvent: {}
+[3.332255] (-) TimerEvent: {}
+[3.432950] (-) TimerEvent: {}
+[3.533699] (-) TimerEvent: {}
+[3.634862] (-) TimerEvent: {}
+[3.735996] (-) TimerEvent: {}
+[3.837194] (-) TimerEvent: {}
+[3.938423] (-) TimerEvent: {}
+[4.039608] (-) TimerEvent: {}
+[4.140844] (-) TimerEvent: {}
+[4.241997] (-) TimerEvent: {}
+[4.343243] (-) TimerEvent: {}
+[4.387381] (rplidar_ros) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[4.443640] (-) TimerEvent: {}
+[4.544934] (-) TimerEvent: {}
+[4.646164] (-) TimerEvent: {}
+[4.747412] (-) TimerEvent: {}
+[4.848661] (-) TimerEvent: {}
+[4.949402] (-) TimerEvent: {}
+[5.050072] (-) TimerEvent: {}
+[5.150814] (-) TimerEvent: {}
+[5.251540] (-) TimerEvent: {}
+[5.352289] (-) TimerEvent: {}
+[5.453000] (-) TimerEvent: {}
+[5.553762] (-) TimerEvent: {}
+[5.654575] (-) TimerEvent: {}
+[5.667732] (rplidar_ros) StdoutLine: {'line': b'-- Configuring done\n'}
+[5.754821] (-) TimerEvent: {}
+[5.782681] (rplidar_ros) StdoutLine: {'line': b'-- Generating done\n'}
+[5.813491] (rplidar_ros) StdoutLine: {'line': b'-- Build files have been written to: /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/build/rplidar_ros\n'}
+[5.855132] (-) TimerEvent: {}
+[5.929113] (rplidar_ros) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target rplidar_composition_node\x1b[0m\n'}
+[5.955270] (-) TimerEvent: {}
+[6.050622] (rplidar_ros) StdoutLine: {'line': b'[ 77%] Built target rplidar_composition_node\n'}
+[6.055441] (-) TimerEvent: {}
+[6.096477] (rplidar_ros) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target rplidar_composition\x1b[0m\n'}
+[6.155646] (-) TimerEvent: {}
+[6.187134] (rplidar_ros) StdoutLine: {'line': b'[100%] Built target rplidar_composition\n'}
+[6.225292] (rplidar_ros) CommandEnded: {'returncode': 0}
+[6.227165] (rplidar_ros) JobProgress: {'identifier': 'rplidar_ros', 'progress': 'install'}
+[6.255838] (-) TimerEvent: {}
+[6.261228] (rplidar_ros) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/build/rplidar_ros'], 'cwd': '/home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/build/rplidar_ros', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'KDAIL-Rpi'), ('SSH_CLIENT', '10.99.74.239 55902 22'), ('XDG_SESSION_TYPE', 'tty'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/KDAIL-Rpi'), ('OLDPWD', '/home/KDAIL-Rpi'), ('SSH_TTY', '/dev/pts/0'), ('ROS_PYTHON_VERSION', '3'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'KDAIL-Rpi'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '6'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/KDAIL-Rpi/.local/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', 'localhost:10.0'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('PWD', '/home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/build/rplidar_ros'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '10.99.74.239 55902 10.99.74.83 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[6.292284] (rplidar_ros) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[6.292841] (rplidar_ros) StdoutLine: {'line': b'-- Up-to-date: /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/install/rplidar_ros/lib/rplidar_ros\n'}
+[6.293260] (rplidar_ros) StdoutLine: {'line': b'-- Up-to-date: /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/install/rplidar_ros/lib/rplidar_ros/static_slam.py\n'}
+[6.293668] (rplidar_ros) StdoutLine: {'line': b'-- Up-to-date: /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/install/rplidar_ros/lib/rplidar_ros/save_map.py\n'}
+[6.294009] (rplidar_ros) StdoutLine: {'line': b'-- Up-to-date: /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/install/rplidar_ros/lib/rplidar_ros/run_slam_and_save.sh\n'}
+[6.294386] (rplidar_ros) StdoutLine: {'line': b'-- Up-to-date: /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/install/rplidar_ros/lib/rplidar_ros/data.py\n'}
+[6.294745] (rplidar_ros) StdoutLine: {'line': b'-- Up-to-date: /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/install/rplidar_ros/lib/rplidar_ros/create_udev_rules.sh\n'}
+[6.295049] (rplidar_ros) StdoutLine: {'line': b'-- Up-to-date: /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/install/rplidar_ros/lib/rplidar_ros/delete_udev_rules.sh\n'}
+[6.295312] (rplidar_ros) StdoutLine: {'line': b'-- Up-to-date: /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/install/rplidar_ros/lib/rplidar_ros/rplidar.rules\n'}
+[6.295632] (rplidar_ros) StdoutLine: {'line': b'-- Up-to-date: /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/install/rplidar_ros/lib/rplidar_ros/view_map.py\n'}
+[6.296031] (rplidar_ros) StdoutLine: {'line': b'-- Up-to-date: /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/install/rplidar_ros/lib/rplidar_ros/rplidar_composition\n'}
+[6.297459] (rplidar_ros) StdoutLine: {'line': b'-- Up-to-date: /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/install/rplidar_ros/share/rplidar_ros/launch\n'}
+[6.297960] (rplidar_ros) StdoutLine: {'line': b'-- Up-to-date: /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/install/rplidar_ros/share/rplidar_ros/launch/view_rplidar_s1_tcp.launch.py\n'}
+[6.298332] (rplidar_ros) StdoutLine: {'line': b'-- Up-to-date: /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/install/rplidar_ros/share/rplidar_ros/launch/rplidar_s1_tcp.launch.py\n'}
+[6.298728] (rplidar_ros) StdoutLine: {'line': b'-- Up-to-date: /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/install/rplidar_ros/share/rplidar_ros/launch/view_rplidar_s1.launch.py\n'}
+[6.299058] (rplidar_ros) StdoutLine: {'line': b'-- Up-to-date: /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/install/rplidar_ros/share/rplidar_ros/launch/rplidar_a3.launch.py\n'}
+[6.299592] (rplidar_ros) StdoutLine: {'line': b'-- Up-to-date: /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/install/rplidar_ros/share/rplidar_ros/launch/view_rplidar.launch.py\n'}
+[6.300002] (rplidar_ros) StdoutLine: {'line': b'-- Up-to-date: /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/install/rplidar_ros/share/rplidar_ros/launch/rplidar_s1.launch.py\n'}
+[6.300411] (rplidar_ros) StdoutLine: {'line': b'-- Up-to-date: /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/install/rplidar_ros/share/rplidar_ros/launch/view_rplidar_a3.launch.py\n'}
+[6.300820] (rplidar_ros) StdoutLine: {'line': b'-- Up-to-date: /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/install/rplidar_ros/share/rplidar_ros/launch/static_slam.launch.py\n'}
+[6.301151] (rplidar_ros) StdoutLine: {'line': b'-- Up-to-date: /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/install/rplidar_ros/share/rplidar_ros/launch/test_rplidar_a3.launch.py\n'}
+[6.301516] (rplidar_ros) StdoutLine: {'line': b'-- Up-to-date: /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/install/rplidar_ros/share/rplidar_ros/launch/rplidar.launch.py\n'}
+[6.301799] (rplidar_ros) StdoutLine: {'line': b'-- Up-to-date: /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/install/rplidar_ros/share/rplidar_ros/rviz\n'}
+[6.302217] (rplidar_ros) StdoutLine: {'line': b'-- Installing: /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/install/rplidar_ros/share/rplidar_ros/rviz/slam.rviz\n'}
+[6.302495] (rplidar_ros) StdoutLine: {'line': b'-- Up-to-date: /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/install/rplidar_ros/share/rplidar_ros/rviz/rplidar.rviz\n'}
+[6.303199] (rplidar_ros) StdoutLine: {'line': b'-- Up-to-date: /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/install/rplidar_ros/lib/librplidar_composition_node.so\n'}
+[6.304368] (rplidar_ros) StdoutLine: {'line': b'-- Up-to-date: /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/install/rplidar_ros/include\n'}
+[6.304902] (rplidar_ros) StdoutLine: {'line': b'-- Up-to-date: /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/install/rplidar_ros/include/visibility.h\n'}
+[6.305322] (rplidar_ros) StdoutLine: {'line': b'-- Up-to-date: /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/install/rplidar_ros/include/rplidar_node.hpp\n'}
+[6.306242] (rplidar_ros) StdoutLine: {'line': b'-- Up-to-date: /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/install/rplidar_ros/lib/rplidar_ros/rplidar_composition\n'}
+[6.307503] (rplidar_ros) StdoutLine: {'line': b'-- Up-to-date: /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/install/rplidar_ros/share/ament_index/resource_index/package_run_dependencies/rplidar_ros\n'}
+[6.307925] (rplidar_ros) StdoutLine: {'line': b'-- Installing: /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/install/rplidar_ros/share/ament_index/resource_index/parent_prefix_path/rplidar_ros\n'}
+[6.309467] (rplidar_ros) StdoutLine: {'line': b'-- Up-to-date: /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/install/rplidar_ros/share/rplidar_ros/environment/ament_prefix_path.sh\n'}
+[6.309918] (rplidar_ros) StdoutLine: {'line': b'-- Installing: /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/install/rplidar_ros/share/rplidar_ros/environment/ament_prefix_path.dsv\n'}
+[6.311091] (rplidar_ros) StdoutLine: {'line': b'-- Up-to-date: /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/install/rplidar_ros/share/rplidar_ros/environment/path.sh\n'}
+[6.311506] (rplidar_ros) StdoutLine: {'line': b'-- Installing: /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/install/rplidar_ros/share/rplidar_ros/environment/path.dsv\n'}
+[6.312715] (rplidar_ros) StdoutLine: {'line': b'-- Up-to-date: /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/install/rplidar_ros/share/rplidar_ros/local_setup.bash\n'}
+[6.313200] (rplidar_ros) StdoutLine: {'line': b'-- Up-to-date: /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/install/rplidar_ros/share/rplidar_ros/local_setup.sh\n'}
+[6.313581] (rplidar_ros) StdoutLine: {'line': b'-- Up-to-date: /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/install/rplidar_ros/share/rplidar_ros/local_setup.zsh\n'}
+[6.313984] (rplidar_ros) StdoutLine: {'line': b'-- Installing: /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/install/rplidar_ros/share/rplidar_ros/local_setup.dsv\n'}
+[6.315023] (rplidar_ros) StdoutLine: {'line': b'-- Installing: /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/install/rplidar_ros/share/rplidar_ros/package.dsv\n'}
+[6.316292] (rplidar_ros) StdoutLine: {'line': b'-- Up-to-date: /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/install/rplidar_ros/share/ament_index/resource_index/packages/rplidar_ros\n'}
+[6.316751] (rplidar_ros) StdoutLine: {'line': b'-- Up-to-date: /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/install/rplidar_ros/share/ament_index/resource_index/rclcpp_components/rplidar_ros\n'}
+[6.317193] (rplidar_ros) StdoutLine: {'line': b'-- Up-to-date: /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/install/rplidar_ros/share/rplidar_ros/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[6.317594] (rplidar_ros) StdoutLine: {'line': b'-- Up-to-date: /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/install/rplidar_ros/share/rplidar_ros/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[6.317983] (rplidar_ros) StdoutLine: {'line': b'-- Up-to-date: /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/install/rplidar_ros/share/rplidar_ros/cmake/rplidar_rosConfig.cmake\n'}
+[6.318323] (rplidar_ros) StdoutLine: {'line': b'-- Up-to-date: /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/install/rplidar_ros/share/rplidar_ros/cmake/rplidar_rosConfig-version.cmake\n'}
+[6.318666] (rplidar_ros) StdoutLine: {'line': b'-- Up-to-date: /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/install/rplidar_ros/share/rplidar_ros/package.xml\n'}
+[6.323784] (rplidar_ros) CommandEnded: {'returncode': 0}
+[6.356117] (-) TimerEvent: {}
+[6.415943] (rplidar_ros) JobEnded: {'identifier': 'rplidar_ros', 'rc': 0}
+[6.418574] (-) EventReactorShutdown: {}
