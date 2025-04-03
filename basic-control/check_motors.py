@@ -78,16 +78,13 @@ def test_both_motors_backward():
     GPIO.output(IN2, GPIO.HIGH)
     GPIO.output(IN3, GPIO.LOW)
     GPIO.output(IN4, GPIO.HIGH)
-    time.sleep(3)
+    time.sleep(60)
     stop_motors()
     time.sleep(1)
 
 try:
     print("Starting motor test sequence")
-    print("Each motor will run for 3 seconds")
-    time.sleep(2)
-
-    ##test_left_motor_forward()
+    print("Each motor will run for 60 sec")
     ##test_left_motor_backward()
     ##test_right_motor_forward()
     ##test_right_motor_backward()

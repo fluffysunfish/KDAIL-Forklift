@@ -5,8 +5,8 @@ import termios
 import time
 
 # Define GPIO pin connections
-IN1 = 18  # Left motor forward
-IN2 = 17  # Left motor backward
+IN1 = 17  # Left motor forward
+IN2 = 18  # Left motor backward
 IN3 = 22  # Right motor forward
 IN4 = 23  # Right motor backward
 
