@@ -1,0 +1,27 @@
+[0.014s] Invoking command in '/home/raze/workspace/KDAIL-Forklift/ros2_ws/build/forklift_urdf': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble PS1=\[\033[36m\]\u\[\033[0m\]@\[\033[32m\]\h\[\033[0m\]:\[\033[33m\]\w\[\033[0m\]\$ /usr/bin/cmake --build /home/raze/workspace/KDAIL-Forklift/ros2_ws/build/forklift_urdf -- -j14 -l14
+[0.051s] Invoked command in '/home/raze/workspace/KDAIL-Forklift/ros2_ws/build/forklift_urdf' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble PS1=\[\033[36m\]\u\[\033[0m\]@\[\033[32m\]\h\[\033[0m\]:\[\033[33m\]\w\[\033[0m\]\$ /usr/bin/cmake --build /home/raze/workspace/KDAIL-Forklift/ros2_ws/build/forklift_urdf -- -j14 -l14
+[0.052s] Invoking command in '/home/raze/workspace/KDAIL-Forklift/ros2_ws/build/forklift_urdf': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble PS1=\[\033[36m\]\u\[\033[0m\]@\[\033[32m\]\h\[\033[0m\]:\[\033[33m\]\w\[\033[0m\]\$ /usr/bin/cmake --install /home/raze/workspace/KDAIL-Forklift/ros2_ws/build/forklift_urdf
+[0.057s] -- Install configuration: ""
+[0.058s] -- Up-to-date: /home/raze/workspace/KDAIL-Forklift/ros2_ws/install/forklift_urdf/share/forklift_urdf/launch
+[0.058s] -- Installing: /home/raze/workspace/KDAIL-Forklift/ros2_ws/install/forklift_urdf/share/forklift_urdf/launch/display.launch.py
+[0.058s] -- Up-to-date: /home/raze/workspace/KDAIL-Forklift/ros2_ws/install/forklift_urdf/share/forklift_urdf/urdf
+[0.058s] -- Up-to-date: /home/raze/workspace/KDAIL-Forklift/ros2_ws/install/forklift_urdf/share/forklift_urdf/urdf/robot.urdf
+[0.058s] -- Up-to-date: /home/raze/workspace/KDAIL-Forklift/ros2_ws/install/forklift_urdf/share/forklift_urdf/urdf/my_robot.urdf.xacro
+[0.058s] -- Up-to-date: /home/raze/workspace/KDAIL-Forklift/ros2_ws/install/forklift_urdf/share/forklift_urdf/rviz
+[0.058s] -- Up-to-date: /home/raze/workspace/KDAIL-Forklift/ros2_ws/install/forklift_urdf/share/forklift_urdf/rviz/urdf.rviz
+[0.058s] -- Up-to-date: /home/raze/workspace/KDAIL-Forklift/ros2_ws/install/forklift_urdf/share/ament_index/resource_index/package_run_dependencies/forklift_urdf
+[0.058s] -- Up-to-date: /home/raze/workspace/KDAIL-Forklift/ros2_ws/install/forklift_urdf/share/ament_index/resource_index/parent_prefix_path/forklift_urdf
+[0.058s] -- Up-to-date: /home/raze/workspace/KDAIL-Forklift/ros2_ws/install/forklift_urdf/share/forklift_urdf/environment/ament_prefix_path.sh
+[0.058s] -- Up-to-date: /home/raze/workspace/KDAIL-Forklift/ros2_ws/install/forklift_urdf/share/forklift_urdf/environment/ament_prefix_path.dsv
+[0.058s] -- Up-to-date: /home/raze/workspace/KDAIL-Forklift/ros2_ws/install/forklift_urdf/share/forklift_urdf/environment/path.sh
+[0.058s] -- Up-to-date: /home/raze/workspace/KDAIL-Forklift/ros2_ws/install/forklift_urdf/share/forklift_urdf/environment/path.dsv
+[0.058s] -- Up-to-date: /home/raze/workspace/KDAIL-Forklift/ros2_ws/install/forklift_urdf/share/forklift_urdf/local_setup.bash
+[0.059s] -- Up-to-date: /home/raze/workspace/KDAIL-Forklift/ros2_ws/install/forklift_urdf/share/forklift_urdf/local_setup.sh
+[0.059s] -- Up-to-date: /home/raze/workspace/KDAIL-Forklift/ros2_ws/install/forklift_urdf/share/forklift_urdf/local_setup.zsh
+[0.059s] -- Up-to-date: /home/raze/workspace/KDAIL-Forklift/ros2_ws/install/forklift_urdf/share/forklift_urdf/local_setup.dsv
+[0.059s] -- Up-to-date: /home/raze/workspace/KDAIL-Forklift/ros2_ws/install/forklift_urdf/share/forklift_urdf/package.dsv
+[0.059s] -- Up-to-date: /home/raze/workspace/KDAIL-Forklift/ros2_ws/install/forklift_urdf/share/ament_index/resource_index/packages/forklift_urdf
+[0.059s] -- Up-to-date: /home/raze/workspace/KDAIL-Forklift/ros2_ws/install/forklift_urdf/share/forklift_urdf/cmake/forklift_urdfConfig.cmake
+[0.059s] -- Up-to-date: /home/raze/workspace/KDAIL-Forklift/ros2_ws/install/forklift_urdf/share/forklift_urdf/cmake/forklift_urdfConfig-version.cmake
+[0.059s] -- Up-to-date: /home/raze/workspace/KDAIL-Forklift/ros2_ws/install/forklift_urdf/share/forklift_urdf/package.xml
+[0.067s] Invoked command in '/home/raze/workspace/KDAIL-Forklift/ros2_ws/build/forklift_urdf' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble PS1=\[\033[36m\]\u\[\033[0m\]@\[\033[32m\]\h\[\033[0m\]:\[\033[33m\]\w\[\033[0m\]\$ /usr/bin/cmake --install /home/raze/workspace/KDAIL-Forklift/ros2_ws/build/forklift_urdf

@@ -1,0 +1,42 @@
+-- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+-- Found rclpy: 3.3.16 (/opt/ros/humble/share/rclpy/cmake)
+-- Found sensor_msgs: 4.8.0 (/opt/ros/humble/share/sensor_msgs/cmake)
+-- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+-- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+-- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found nav_msgs: 4.8.0 (/opt/ros/humble/share/nav_msgs/cmake)
+-- Found ament_lint_auto: 0.12.12 (/opt/ros/humble/share/ament_lint_auto/cmake)
+WARNING: Package name "Forklift_Firmware" does not follow the naming conventions. It should start with a lower case letter and only contain lower case letters, digits, underscores, and dashes.
+-- Added test 'flake8' to check Python code syntax and style conventions
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/raze/workspace/KDAIL-Forklift/ros2_ws/build/Forklift_Firmware
+-- Install configuration: ""
+-- Up-to-date: /home/raze/workspace/KDAIL-Forklift/ros2_ws/install/Forklift_Firmware/lib/Forklift_Firmware/imu_publisher.py
+-- Installing: /home/raze/workspace/KDAIL-Forklift/ros2_ws/install/Forklift_Firmware/lib/Forklift_Firmware/uwb_to_odom.py
+-- Up-to-date: /home/raze/workspace/KDAIL-Forklift/ros2_ws/install/Forklift_Firmware/share/Forklift_Firmware/urdf
+-- Up-to-date: /home/raze/workspace/KDAIL-Forklift/ros2_ws/install/Forklift_Firmware/share/Forklift_Firmware/urdf/my_robot.urdf.xacro
+-- Up-to-date: /home/raze/workspace/KDAIL-Forklift/ros2_ws/install/Forklift_Firmware/share/Forklift_Firmware/rviz
+-- Up-to-date: /home/raze/workspace/KDAIL-Forklift/ros2_ws/install/Forklift_Firmware/share/Forklift_Firmware/rviz/urdf.rviz
+-- Up-to-date: /home/raze/workspace/KDAIL-Forklift/ros2_ws/install/Forklift_Firmware/share/Forklift_Firmware/launch
+-- Installing: /home/raze/workspace/KDAIL-Forklift/ros2_ws/install/Forklift_Firmware/share/Forklift_Firmware/launch/display.launch.py
+-- Installing: /home/raze/workspace/KDAIL-Forklift/ros2_ws/install/Forklift_Firmware/share/ament_index/resource_index/package_run_dependencies/Forklift_Firmware
+-- Up-to-date: /home/raze/workspace/KDAIL-Forklift/ros2_ws/install/Forklift_Firmware/share/ament_index/resource_index/parent_prefix_path/Forklift_Firmware
+-- Up-to-date: /home/raze/workspace/KDAIL-Forklift/ros2_ws/install/Forklift_Firmware/share/Forklift_Firmware/environment/ament_prefix_path.sh
+-- Installing: /home/raze/workspace/KDAIL-Forklift/ros2_ws/install/Forklift_Firmware/share/Forklift_Firmware/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/raze/workspace/KDAIL-Forklift/ros2_ws/install/Forklift_Firmware/share/Forklift_Firmware/environment/path.sh
+-- Installing: /home/raze/workspace/KDAIL-Forklift/ros2_ws/install/Forklift_Firmware/share/Forklift_Firmware/environment/path.dsv
+-- Up-to-date: /home/raze/workspace/KDAIL-Forklift/ros2_ws/install/Forklift_Firmware/share/Forklift_Firmware/local_setup.bash
+-- Up-to-date: /home/raze/workspace/KDAIL-Forklift/ros2_ws/install/Forklift_Firmware/share/Forklift_Firmware/local_setup.sh
+-- Up-to-date: /home/raze/workspace/KDAIL-Forklift/ros2_ws/install/Forklift_Firmware/share/Forklift_Firmware/local_setup.zsh
+-- Installing: /home/raze/workspace/KDAIL-Forklift/ros2_ws/install/Forklift_Firmware/share/Forklift_Firmware/local_setup.dsv
+-- Installing: /home/raze/workspace/KDAIL-Forklift/ros2_ws/install/Forklift_Firmware/share/Forklift_Firmware/package.dsv
+-- Up-to-date: /home/raze/workspace/KDAIL-Forklift/ros2_ws/install/Forklift_Firmware/share/ament_index/resource_index/packages/Forklift_Firmware
+-- Up-to-date: /home/raze/workspace/KDAIL-Forklift/ros2_ws/install/Forklift_Firmware/share/Forklift_Firmware/cmake/Forklift_FirmwareConfig.cmake
+-- Up-to-date: /home/raze/workspace/KDAIL-Forklift/ros2_ws/install/Forklift_Firmware/share/Forklift_Firmware/cmake/Forklift_FirmwareConfig-version.cmake
+-- Installing: /home/raze/workspace/KDAIL-Forklift/ros2_ws/install/Forklift_Firmware/share/Forklift_Firmware/package.xml

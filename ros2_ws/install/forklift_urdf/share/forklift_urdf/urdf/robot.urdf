@@ -1,0 +1,238 @@
+<?xml version="1.0"?>
+<robot name="four_wheeled_bot">
+  <!-- Colors for visualization -->
+  <material name="blue">
+    <color rgba="0 0 0.8 1"/>
+  </material>
+  <material name="black">
+    <color rgba="0 0 0 1"/>
+  </material>
+  <material name="white">
+    <color rgba="1 1 1 1"/>
+  </material>
+  <material name="red">
+    <color rgba="0.8 0 0 1"/>
+  </material>
+  
+  <!-- Base Chassis -->
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <box size="0.20 0.15 0.02"/> <!-- 20cm x 15cm plate with 2cm thickness -->
+      </geometry>
+      <material name="blue"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.20 0.15 0.02"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </collision>
+    <inertial>
+      <mass value="1.0"/>
+      <inertia ixx="0.015" ixy="0" ixz="0" iyy="0.0125" iyz="0" izz="0.0267"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </inertial>
+  </link>
+
+  <!-- Right Wheels -->
+  <!-- Front Right Wheel -->
+  <link name="front_right_wheel">
+    <visual>
+      <geometry>
+        <cylinder length="0.07" radius="0.015"/> <!-- 3cm diameter (1.5cm radius) and 7cm thickness -->
+      </geometry>
+      <material name="black"/>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/> <!-- Rotated to align with wheel orientation -->
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.07" radius="0.015"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+    </collision>
+    <inertial>
+      <mass value="0.5"/>
+      <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001"/>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+    </inertial>
+  </link>
+
+  <joint name="front_right_wheel_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="front_right_wheel"/>
+    <origin xyz="0.07 -0.085 -0.015" rpy="0 0 0"/> <!-- Position wheel at the right front corner -->
+    <axis xyz="0 1 0"/> <!-- Rotate around Y axis -->
+  </joint>
+
+  <!-- Rear Right Wheel -->
+  <link name="rear_right_wheel">
+    <visual>
+      <geometry>
+        <cylinder length="0.07" radius="0.015"/>
+      </geometry>
+      <material name="black"/>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.07" radius="0.015"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+    </collision>
+    <inertial>
+      <mass value="0.5"/>
+      <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001"/>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+    </inertial>
+  </link>
+
+  <joint name="rear_right_wheel_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="rear_right_wheel"/>
+    <origin xyz="-0.07 -0.085 -0.015" rpy="0 0 0"/> <!-- Position wheel at the right rear corner -->
+    <axis xyz="0 1 0"/> <!-- Rotate around Y axis -->
+    <mimic joint="front_right_wheel_joint" multiplier="1" offset="0"/> <!-- This wheel moves with the front right wheel -->
+  </joint>
+
+  <!-- Left Wheels -->
+  <!-- Front Left Wheel -->
+  <link name="front_left_wheel">
+    <visual>
+      <geometry>
+        <cylinder length="0.07" radius="0.015"/>
+      </geometry>
+      <material name="black"/>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.07" radius="0.015"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+    </collision>
+    <inertial>
+      <mass value="0.5"/>
+      <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001"/>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+    </inertial>
+  </link>
+
+  <joint name="front_left_wheel_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="front_left_wheel"/>
+    <origin xyz="0.07 0.085 -0.015" rpy="0 0 0"/> <!-- Position wheel at the left front corner -->
+    <axis xyz="0 1 0"/> <!-- Rotate around Y axis -->
+  </joint>
+
+  <!-- Rear Left Wheel -->
+  <link name="rear_left_wheel">
+    <visual>
+      <geometry>
+        <cylinder length="0.07" radius="0.015"/>
+      </geometry>
+     <material name="black"/>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.07" radius="0.015"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+    </collision>
+    <inertial>
+      <mass value="0.5"/>
+      <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001"/>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+    </inertial>
+  </link>
+
+  <joint name="rear_left_wheel_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="rear_left_wheel"/>
+    <origin xyz="-0.07 0.085 -0.015" rpy="0 0 0"/> <!-- Position wheel at the left rear corner -->
+    <axis xyz="0 1 0"/> <!-- Rotate around Y axis -->
+    <mimic joint="front_left_wheel_joint" multiplier="1" offset="0"/> <!-- This wheel moves with the front left wheel -->
+  </joint>
+
+  <!-- Movable Ramp at Front -->
+  <link name="front_ramp">
+    <visual>
+      <geometry>
+        <box size="0.05 0.15 0.005"/> <!-- Small ramp at the front -->
+      </geometry>
+      <material name="red"/>
+      <origin xyz="0.025 0 0" rpy="0 0 0"/> <!-- Center of the ramp -->
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.05 0.15 0.005"/>
+      </geometry>
+      <origin xyz="0.025 0 0" rpy="0 0 0"/>
+    </collision>
+    <inertial>
+      <mass value="0.2"/>
+      <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001"/>
+      <origin xyz="0.025 0 0" rpy="0 0 0"/>
+    </inertial>
+  </link>
+
+  <joint name="ramp_joint" type="revolute">
+    <parent link="base_link"/>
+    <child link="front_ramp"/>
+    <origin xyz="0.125 0 0.005" rpy="0 0 0"/> <!-- Position at the front edge of the chassis -->
+    <axis xyz="0 1 0"/> <!-- Rotate around Y axis for up/down motion -->
+    <limit lower="-0.8" upper="0.8" effort="10" velocity="1"/> <!-- Limit ramp movement to about 45 degrees up/down -->
+  </joint>
+
+  <!-- LiDAR Frame -->
+  <link name="lidar_frame">
+    <visual>
+      <geometry>
+        <cylinder length="0.02" radius="0.025"/> <!-- Small cylinder to represent the LiDAR -->
+      </geometry>
+      <material name="white"/>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.02" radius="0.025"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.1"/>
+      <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001"/>
+    </inertial>
+  </link>
+
+  <joint name="lidar_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="lidar_frame"/>
+    <origin xyz="0 0 0.15" rpy="0 0 0"/> <!-- 15cm above center of chassis -->
+  </joint>
+
+  <!-- Camera Frame -->
+  <link name="camera_frame">
+    <visual>
+      <geometry>
+        <box size="0.02 0.02 0.02"/> <!-- Small box to represent the camera -->
+      </geometry>
+      <material name="black"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.02 0.02 0.02"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.05"/>
+      <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001"/>
+    </inertial>
+  </link>
+
+  <joint name="camera_joint" type="fixed">
+    <parent link="front_ramp"/>
+    <child link="camera_frame"/>
+    <origin xyz="0.025 0.075 0.02" rpy="0 0 0"/> <!-- At the edge of the ramp, slightly elevated -->
+  </joint>
+</robot> 

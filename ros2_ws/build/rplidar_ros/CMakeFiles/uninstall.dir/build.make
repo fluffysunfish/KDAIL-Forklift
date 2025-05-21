@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/src/rplidar_ros2
+CMAKE_SOURCE_DIR = /home/raze/workspace/KDAIL-Forklift/ros2_ws/src/rplidar_ros
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/build/rplidar_ros
+CMAKE_BINARY_DIR = /home/raze/workspace/KDAIL-Forklift/ros2_ws/build/rplidar_ros
 
 # Utility rule file for uninstall.
 
@@ -78,6 +78,6 @@ CMakeFiles/uninstall.dir/clean:
 .PHONY : CMakeFiles/uninstall.dir/clean
 
 CMakeFiles/uninstall.dir/depend:
-	cd /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/build/rplidar_ros && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/src/rplidar_ros2 /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/src/rplidar_ros2 /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/build/rplidar_ros /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/build/rplidar_ros /home/KDAIL-Rpi/KDAIL-Forklift/ros2_ws/build/rplidar_ros/CMakeFiles/uninstall.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/raze/workspace/KDAIL-Forklift/ros2_ws/build/rplidar_ros && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/raze/workspace/KDAIL-Forklift/ros2_ws/src/rplidar_ros /home/raze/workspace/KDAIL-Forklift/ros2_ws/src/rplidar_ros /home/raze/workspace/KDAIL-Forklift/ros2_ws/build/rplidar_ros /home/raze/workspace/KDAIL-Forklift/ros2_ws/build/rplidar_ros /home/raze/workspace/KDAIL-Forklift/ros2_ws/build/rplidar_ros/CMakeFiles/uninstall.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/uninstall.dir/depend
 

@@ -30,7 +30,7 @@ class LidarPublisher(Node):
     def publish_lidar_data(self):
         scan_msg = LaserScan()
         scan_msg.header.stamp = self.get_clock().now().to_msg()
-        scan_msg.header.frame_id = "laser_frame"
+        scan_msg.header.frame_id = "laser_link"
         scan_msg.angle_min = 0.0
         scan_msg.angle_max = 2 * math.pi
         scan_msg.angle_increment = math.radians(1)
@@ -42,7 +42,7 @@ class LidarPublisher(Node):
         text_marker = Marker()
 
         # Configure line marker (for 0°, 90°, 180°, 270°)
-        line_marker.header.frame_id = "laser_frame"
+        line_marker.header.frame_id = "laser_link"
         line_marker.header.stamp = self.get_clock().now().to_msg()
         line_marker.ns = "lines"
         line_marker.id = 0
@@ -53,7 +53,7 @@ class LidarPublisher(Node):
         line_marker.color.r = 1.0  # Red color
 
         # Configure text marker (for labels)
-        text_marker.header.frame_id = "laser_frame"
+        text_marker.header.frame_id = "laser_link"
         text_marker.header.stamp = self.get_clock().now().to_msg()
         text_marker.ns = "labels"
         text_marker.id = 1
@@ -89,7 +89,7 @@ class LidarPublisher(Node):
 
                         # Add text label at the endpoint
                         label = Marker()
-                        label.header.frame_id = "laser_frame"
+                        label.header.frame_id = "laser_link"
                         label.header.stamp = self.get_clock().now().to_msg()
                         label.ns = "labels"
                         label.id = target
