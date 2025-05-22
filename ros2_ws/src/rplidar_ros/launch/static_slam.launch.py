@@ -23,6 +23,21 @@ def generate_launch_description():
         output='screen'
     )
     
+    # Launch the UWB positioning node
+    uwb_node = Node(
+        package='rplidar_ros',
+        executable='uwb_xy.py',
+        name='uwb_positioning',
+        output='screen',
+        parameters=[{
+            'x_position': 1.0,
+            'y_position': 1.0,
+            'z_position': 0.0,
+            'yaw_angle': 0.0,
+            'publish_frequency': 20.0
+        }]
+    )
+    
     # Launch RViz
     rviz_node = Node(
         package='rviz2',
@@ -34,6 +49,7 @@ def generate_launch_description():
     
     return LaunchDescription([
         rplidar_launch,
+        uwb_node,  # Run UWB node before SLAM node to ensure transform is available
         static_slam_node,
         rviz_node
     ]) 

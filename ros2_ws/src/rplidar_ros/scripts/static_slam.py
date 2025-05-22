@@ -37,8 +37,13 @@ class StaticSLAM(Node):
             'map',
             10)
 
-        # TF broadcaster for map->laser_frame transform
-        self.tf_broadcaster = TransformBroadcaster(self)
+        # No longer broadcasting TF since uwb_xy.py handles it
+        # self.tf_broadcaster = TransformBroadcaster(self)
+        
+        # We need to receive the transform that uwb_xy.py publishes
+        from tf2_ros import TransformListener, Buffer
+        self.tf_buffer = Buffer()
+        self.tf_listener = TransformListener(self.tf_buffer, self)
 
         # Timer for publishing map
         self.map_timer = self.create_timer(0.5, self.publish_map)
@@ -65,12 +70,31 @@ class StaticSLAM(Node):
         """Process incoming laser scan data and update the map in real-time"""
         self.get_logger().info(f'Processing scan {self.update_count + 1}')
 
-        # Broadcast transform: map -> laser_frame
-        self.broadcast_transform()
+        # Get transform from the UWB node
+        try:
+            # Look up transform from map to laser_frame
+            transform = self.tf_buffer.lookup_transform(
+                'map',
+                'laser_frame',
+                rclpy.time.Time())
+            
+            # Extract position from transform
+            robot_x = transform.transform.translation.x
+            robot_y = transform.transform.translation.y
+            
+            # Log the robot position
+            self.get_logger().info(f'Robot position: ({robot_x:.2f}, {robot_y:.2f})')
+        except Exception as e:
+            self.get_logger().error(f'Failed to lookup transform: {e}')
+            return
 
         # Center of the map in map coordinates
         center_x = self.map_width // 2
         center_y = self.map_height // 2
+        
+        # Calculate robot position in map coordinates
+        robot_map_x = int(center_x + robot_x / self.map_resolution)
+        robot_map_y = int(center_y + robot_y / self.map_resolution)
 
         # Store current scan for comparison
         current_scan = []
@@ -95,9 +119,9 @@ class StaticSLAM(Node):
             # Store scan point
             current_scan.append((angle, distance))
 
-            # Convert to map coordinates
-            map_x = int(center_x + x / self.map_resolution)
-            map_y = int(center_y + y / self.map_resolution)
+            # Convert to map coordinates, accounting for robot position
+            map_x = int(robot_map_x + x / self.map_resolution)
+            map_y = int(robot_map_y + y / self.map_resolution)
 
             # Check if point is within map bounds
             if 0 <= map_x < self.map_width and 0 <= map_y < self.map_height:
@@ -107,7 +131,7 @@ class StaticSLAM(Node):
                 self.log_odds_map[map_y, map_x] += self.log_odds_occupied * weight
 
                 # Bresenham's line algorithm to mark free space
-                self.mark_free_space(center_x, center_y, map_x, map_y)
+                self.mark_free_space(robot_map_x, robot_map_y, map_x, map_y)
 
         # Update the scan buffer
         self.recent_scans.append(current_scan)
@@ -186,25 +210,11 @@ class StaticSLAM(Node):
                     self.occupancy_map[y, x] = -1   # Unknown (-1)
 
     def broadcast_transform(self):
-        """Broadcast the transform from map to laser_frame"""
-        t = TransformStamped()
-
-        t.header.stamp = self.get_clock().now().to_msg()
-        t.header.frame_id = 'map'
-        t.child_frame_id = 'laser_frame'
-
-        # The lidar is at the center of the map
-        t.transform.translation.x = 0.0
-        t.transform.translation.y = 0.0
-        t.transform.translation.z = 0.0
-
-        # No rotation since the lidar is fixed
-        t.transform.rotation.x = 0.0
-        t.transform.rotation.y = 0.0
-        t.transform.rotation.z = 0.0
-        t.transform.rotation.w = 1.0
-
-        self.tf_broadcaster.sendTransform(t)
+        """
+        Transform broadcasting is now handled by uwb_xy.py
+        This method is kept for compatibility but does nothing
+        """
+        pass
 
     def publish_map(self):
         """Publish the occupancy grid map"""
