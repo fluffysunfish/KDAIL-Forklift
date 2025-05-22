@@ -34,6 +34,7 @@ install(PROGRAMS
   src/imu_publisher.py
   src/uwb_to_odom.py
   src/dummy_uwb_publisher.py
+  src/imu_pub.py
   DESTINATION lib/${PROJECT_NAME}
 )
 

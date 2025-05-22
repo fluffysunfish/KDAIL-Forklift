@@ -1,4 +1,0 @@
-source;share/Forklift_Firmware/local_setup.bash
-source;share/Forklift_Firmware/local_setup.dsv
-source;share/Forklift_Firmware/local_setup.sh
-source;share/Forklift_Firmware/local_setup.zsh
