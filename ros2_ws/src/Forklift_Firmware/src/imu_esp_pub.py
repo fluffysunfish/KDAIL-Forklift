@@ -20,7 +20,7 @@ class IMUPublisher(Node):
 
         # Serial connection parameters - try common ports
         # self.serial_ports = ['/dev/ttyUSB0', '/dev/ttyACM0', '/dev/ttyUSB1']
-        self.serial_ports = ['/dev/ttyUSB1']
+        self.serial_ports = ['/dev/ttyUSB0']
         self.baud_rate = 115200
         self.serial_connection = None
 
