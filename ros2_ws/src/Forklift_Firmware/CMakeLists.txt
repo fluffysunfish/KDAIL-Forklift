@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.8)
 project(Forklift_Firmware)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-  add_compile_options(-Wall -Wextra -Wpedantic)
+    add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
 
 # find dependencies
@@ -15,15 +15,15 @@ find_package(nav_msgs REQUIRED)
 find_package(std_msgs REQUIRED)
 
 if(BUILD_TESTING)
-  find_package(ament_lint_auto REQUIRED)
-  # the following line skips the linter which checks for copyrights
-  # comment the line when a copyright and license is added to all source files
-  set(ament_cmake_copyright_FOUND TRUE)
-  # the following line skips cpplint (only works in a git repo)
-  # comment the line when this package is in a git repo and when
-  # a copyright and license is added to all source files
-  set(ament_cmake_cpplint_FOUND TRUE)
-  ament_lint_auto_find_test_dependencies()
+    find_package(ament_lint_auto REQUIRED)
+    # the following line skips the linter which checks for copyrights
+    # comment the line when a copyright and license is added to all source files
+    set(ament_cmake_copyright_FOUND TRUE)
+    # the following line skips cpplint (only works in a git repo)
+    # comment the line when this package is in a git repo and when
+    # a copyright and license is added to all source files
+    set(ament_cmake_cpplint_FOUND TRUE)
+    ament_lint_auto_find_test_dependencies()
 endif()
 
 # Install Python modules
@@ -31,12 +31,16 @@ endif()
 
 # Install Python executables
 install(PROGRAMS
-  src/imu_publisher.py
-  src/uwb_to_odom.py
+  # src/imu_publisher.py
+  # src/uwb_to_odom.py
   src/dummy_uwb_publisher.py
-  src/imu_pub.py
+  # src/imu_pub.py
   src/aruco-detection-and-streaming.py
   src/imu_esp_pub.py
+  src/uwb_xy.py
+  src/uwb_fusion/uwb_imu_fusion.py
+  src/uwb_fusion/uwb_raw_publisher.py
+  src/uwb_fusion/uwb_fusion_test.py
   DESTINATION lib/${PROJECT_NAME}
 )
 

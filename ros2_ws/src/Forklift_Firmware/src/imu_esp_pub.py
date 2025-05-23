@@ -15,8 +15,8 @@ class IMUPublisher(Node):
         super().__init__('imu_publisher')
 
         # Create publishers
-        self.imu_publisher = self.create_publisher(Imu, '/imu_1', 10)
-        self.yaw_publisher = self.create_publisher(Float64, '/imu_1_yaw', 10)
+        self.imu_publisher = self.create_publisher(Imu, '/imu_1', 100)
+        self.yaw_publisher = self.create_publisher(Float64, '/imu_1_yaw', 100)
 
         # Serial connection parameters - try common ports
         # self.serial_ports = ['/dev/ttyUSB0', '/dev/ttyACM0', '/dev/ttyUSB1']
@@ -28,7 +28,7 @@ class IMUPublisher(Node):
         self.init_serial()
 
         # Timer for reading serial data
-        self.timer = self.create_timer(0.05, self.read_and_publish)  # 20Hz
+        self.timer = self.create_timer(0.01, self.read_and_publish)  # 100Hz
 
         self.get_logger().info('IMU Publisher Node Started')
         self.get_logger().info(f'Publishing IMU data to: /imu_1')
@@ -88,7 +88,7 @@ class IMUPublisher(Node):
                     else:
                         self.message_count = 1
 
-                    if self.message_count % 40 == 0:  # Every 2 seconds at 20Hz
+                    if self.message_count % 200 == 0:  # Every 2 seconds at 100Hz
                         self.get_logger().info(
                             f'Fused Yaw: {fused_yaw:.1f}° | '
                             f'Magnetic: {magnetic_yaw:.1f}° | '

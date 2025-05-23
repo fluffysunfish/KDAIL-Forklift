@@ -1,122 +1,103 @@
 #!/usr/bin/env python3
 
 import rclpy
-from tf2_ros import TransformBroadcaster
-from geometry_msgs.msg import TransformStamped
 from rclpy.node import Node
-from nav_msgs.msg import Odometry
-from geometry_msgs.msg import Point, Pose, Quaternion, Twist, Vector3
-from std_msgs.msg import Float32MultiArray
+from tf2_ros import TransformBroadcaster
+from geometry_msgs.msg import TransformStamped, Point
+from std_msgs.msg import Float64
 import math
-import numpy as np
-from tf_transformations import quaternion_from_euler
 
-class UWBtoOdom(Node):
+class UWBToOdom(Node):
     def __init__(self):
-        super().__init__('uwb_to_odom_node')
-
-        # Create subscriber for UWB data
-        self.uwb_sub = self.create_subscription(
-            Float32MultiArray,
-            '/UWB_xy_Data',
+        super().__init__('uwb_to_odom')
+        
+        # Initialize position and yaw variables
+        self.x = 0.0
+        self.y = 0.0
+        self.z = 0.0
+        self.yaw_deg = 0.0
+        
+        # Create a transform broadcaster
+        self.tf_broadcaster = TransformBroadcaster(self)
+        
+        # Create subscriptions for UWB position and IMU yaw
+        self.uwb_subscription = self.create_subscription(
+            Point,
+            'uwb_fused_xy',
             self.uwb_callback,
             10
         )
-
-        # Create publisher for odometry data
-        self.odom_pub = self.create_publisher(
-            Odometry,
-            '/odom',
+        
+        self.yaw_subscription = self.create_subscription(
+            Float64,
+            'imu_1_yaw',
+            self.yaw_callback,
             10
         )
-
-        self.tf_broadcaster = TransformBroadcaster(self)
-
-        # Initialize previous position for velocity calculation
-        self.prev_x = 0.0
-        self.prev_y = 0.0
-        self.prev_time = self.get_clock().now()
-
-        self.get_logger().info('UWB to Odometry converter node started')
-
+        
+        # Create a timer for transform broadcast (50Hz)
+        self.timer = self.create_timer(0.02, self.broadcast_transform)
+        
+        self.get_logger().info('UWB to Odom transformation node initialized')
+        
     def uwb_callback(self, msg):
-        current_time = self.get_clock().now()
-
-        # Extract x, y coordinates from UWB data
-        x = msg.data[0]  # Assuming first value is x
-        y = msg.data[1]  # Assuming second value is y
-
-        # Calculate time difference
-        dt = (current_time - self.prev_time).nanoseconds / 1e9  # Convert to seconds
-
-        # Calculate velocities (if dt is not zero)
-        if dt > 0:
-            vx = (x - self.prev_x) / dt
-            vy = (y - self.prev_y) / dt
-        else:
-            vx = 0.0
-            vy = 0.0
-
-        # Create and fill odometry message
-        odom = Odometry()
-        odom.header.stamp = current_time.to_msg()
-        odom.header.frame_id = "odom"
-        odom.child_frame_id = "base_link"
-
-        # Set position
-        odom.pose.pose.position.x = x
-        odom.pose.pose.position.y = y
-        odom.pose.pose.position.z = 0.0
-
-        # Set orientation (assuming robot is moving in the direction of motion)
-        yaw = math.atan2(vy, vx) if (vx != 0 or vy != 0) else 0.0
-        q = quaternion_from_euler(0, 0, yaw)
-        odom.pose.pose.orientation.x = q[0]
-        odom.pose.pose.orientation.y = q[1]
-        odom.pose.pose.orientation.z = q[2]
-        odom.pose.pose.orientation.w = q[3]
-
-        # Set velocities
-        odom.twist.twist.linear.x = vx
-        odom.twist.twist.linear.y = vy
-        odom.twist.twist.linear.z = 0.0
-        odom.twist.twist.angular.x = 0.0
-        odom.twist.twist.angular.y = 0.0
-        odom.twist.twist.angular.z = 0.0
-
-        # Broadcast transform
+        """Update position from UWB data"""
+        self.x = msg.x
+        self.y = msg.y
+        self.z = msg.z
+        self.get_logger().debug(f'Updated position to ({self.x}, {self.y}, {self.z})')
+    
+    def yaw_callback(self, msg):
+        """Update yaw angle from IMU data"""
+        self.yaw_deg = msg.data
+        self.get_logger().debug(f'Updated yaw to {self.yaw_deg} degrees')
+    
+    def broadcast_transform(self):
+        """Broadcast the transform from odom to base_link"""
         t = TransformStamped()
-        t.header.stamp = current_time.to_msg()
-        t.header.frame_id = "odom"
-        t.child_frame_id = "base_link"
-        t.transform.translation.x = x
-        t.transform.translation.y = y
-        t.transform.translation.z = 0.0
-        t.transform.rotation.x = q[0]
-        t.transform.rotation.y = q[1]
-        t.transform.rotation.z = q[2]
-        t.transform.rotation.w = q[3]
-        # Broadcast the transform
+        
+        # Fill in the header
+        t.header.stamp = self.get_clock().now().to_msg()
+        t.header.frame_id = 'odom'
+        t.child_frame_id = 'base_link'
+        
+        # Set translation (position)
+        t.transform.translation.x = self.x
+        t.transform.translation.y = self.y
+        t.transform.translation.z = self.z
+        
+        # Convert yaw from degrees to radians and calculate quaternion
+        yaw_rad = math.radians(self.yaw_deg)
+        t.transform.rotation.x = 0.0
+        t.transform.rotation.y = 0.0
+        t.transform.rotation.z = math.sin(yaw_rad / 2.0)
+        t.transform.rotation.w = math.cos(yaw_rad / 2.0)
+        
+        # Send the transform
         self.tf_broadcaster.sendTransform(t)
-
-        # Publish odometry message
-        self.odom_pub.publish(odom)
-
-        # Update previous values for next iteration
-        self.prev_x = x
-        self.prev_y = y
-        self.prev_time = current_time
+        
+        # Log position periodically (every 2 seconds)
+        if not hasattr(self, 'log_counter'):
+            self.log_counter = 0
+        self.log_counter += 1
+        
+        if self.log_counter >= 100:  # 100 * 0.02s = 2s
+            self.get_logger().info(
+                f'Current position: ({self.x:.2f}, {self.y:.2f}, {self.z:.2f}), '
+                f'Yaw: {self.yaw_deg:.1f}°'
+            )
+            self.log_counter = 0
 
 def main(args=None):
     rclpy.init(args=args)
-    uwb_to_odom = UWBtoOdom()
-
+    node = UWBToOdom()
+    
     try:
-        rclpy.spin(uwb_to_odom)
+        rclpy.spin(node)
     except KeyboardInterrupt:
         pass
     finally:
-        uwb_to_odom.destroy_node()
+        node.destroy_node()
         rclpy.shutdown()
 
 if __name__ == '__main__':
