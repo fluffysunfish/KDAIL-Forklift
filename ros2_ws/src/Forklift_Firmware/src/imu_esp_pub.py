@@ -35,7 +35,7 @@ class IMUPublisher(Node):
         self.init_serial()
 
         # Timer for reading serial data
-        self.timer = self.create_timer(0.01, self.read_and_publish)  # 100Hz
+        self.timer = self.create_timer(0.02, self.read_and_publish)  # 50Hz
 
         self.get_logger().info('IMU Publisher Node Started')
         self.get_logger().info(f'Publishing IMU data to: /imu_1')
@@ -100,7 +100,7 @@ class IMUPublisher(Node):
                     else:
                         self.message_count = 1
 
-                    if self.message_count % 200 == 0:  # Every 2 seconds at 100Hz
+                    if self.message_count % 100 == 0:  # Every 2 seconds at 50Hz
                         self.get_logger().info(
                             f'Raw Yaw: {fused_yaw:.1f}° | '
                             f'Offset: {self.yaw_offset:.1f}° | '
