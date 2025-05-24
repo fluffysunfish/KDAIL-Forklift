@@ -38,9 +38,13 @@ install(PROGRAMS
   src/aruco-detection-and-streaming.py
   src/imu_esp_pub.py
   src/uwb_xy.py
+  # src/uwb_to_odom.py
   src/uwb_fusion/uwb_imu_fusion.py
   src/uwb_fusion/uwb_raw_publisher.py
   src/uwb_fusion/uwb_fusion_test.py
+  src/dynamic_uwb_positioning.py
+  src/test_uwb_imu_publisher.py
+  src/coordinate_system_visualizer.py
   DESTINATION lib/${PROJECT_NAME}
 )
 

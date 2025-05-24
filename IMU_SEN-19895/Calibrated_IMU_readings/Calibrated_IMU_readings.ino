@@ -28,10 +28,10 @@ float deltaTime = 0.0;
 float alpha = 0.95;
 
 // Fixed calibration parameters (your values)
-const float magOffsetX = -4382.5;
-const float magOffsetY = 13239.0;
-const float magScaleX = 1.075;
-const float magScaleY = 0.935;
+const float magOffsetX = -5065.0;
+const float magOffsetY = 13241.0;
+const float magScaleX = 0.910;
+const float magScaleY = 1.110;
 
 // Gyroscope parameters
 float gyroBiasZ = 0.0;
