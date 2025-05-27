@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import Image
@@ -16,10 +17,16 @@ class CameraPublisher(Node):
     def timer_callback(self):
         ret, frame = self.cap.read()
         if ret:
-            msg = self.bridge.cv2_to_imgmsg(frame, encoding="bgr8")
+            if len(frame.shape) == 2 or frame.shape[2] == 1:
+                # Grayscale image
+                msg = self.bridge.cv2_to_imgmsg(frame, encoding="mono8")
+            else:
+                # Color image
+                msg = self.bridge.cv2_to_imgmsg(frame, encoding="bgr8")
             self.publisher.publish(msg)
         else:
             self.get_logger().warn("Failed to capture image")
+
 
 def main(args=None):
     rclpy.init(args=args)
