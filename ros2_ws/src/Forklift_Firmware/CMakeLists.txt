@@ -34,6 +34,7 @@ install(PROGRAMS
   # src/imu_publisher.py
   # src/uwb_to_odom.py
   src/dummy_uwb_publisher.py
+  src/camera_init.py
   # src/imu_pub.py
   # src/aruco-detection-and-streaming.py
   src/imu_esp_pub.py
