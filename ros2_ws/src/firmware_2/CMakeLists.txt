@@ -21,6 +21,8 @@ install(
     scripts/transform_publisher.py
     scripts/static_slam.py
     scripts/updated_static_slam.py
+    scripts/testing/revised_updated_static_slam.py
+    scripts/testing/pose_publisher.py
     DESTINATION lib/${PROJECT_NAME}
 )
 
