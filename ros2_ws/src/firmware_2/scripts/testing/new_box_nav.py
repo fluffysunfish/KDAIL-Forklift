@@ -284,10 +284,10 @@ class RobotNavigationController(Node):
         else:
             # Continue rotating
             if angle_diff > 0:
-                self.send_motor_command("rotate_cw")  # Rotate clockwise
+                self.send_motor_command("rotate_acw")  # Rotate clockwise
                 self.get_logger().info("🔄 Rotating clockwise...")
             else:
-                self.send_motor_command("rotate_acw")  # Rotate anti-clockwise
+                self.send_motor_command("rotate_cw")  # Rotate anti-clockwise
                 self.get_logger().info("🔄 Rotating anti-clockwise...")
 
     def handle_forward_movement(self):
