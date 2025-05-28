@@ -39,6 +39,7 @@ install(PROGRAMS
   # src/aruco-detection-and-streaming.py
   src/imu_esp_pub.py
   src/uwb_xy.py
+  src/motor_controller.py
   # src/uwb_to_odom.py
   # src/uwb_fusion/uwb_imu_fusion.py
   # src/uwb_fusion/uwb_raw_publisher.py

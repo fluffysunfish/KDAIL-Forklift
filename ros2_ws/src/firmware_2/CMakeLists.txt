@@ -23,6 +23,9 @@ install(
     scripts/updated_static_slam.py
     scripts/testing/revised_updated_static_slam.py
     scripts/testing/pose_publisher.py
+    scripts/testing/pose_through_lidar.py
+    # scripts/testing/pose_through_lidar_w_mir_fix.py
+    scripts/testing/box_finding_and_nav.py
     DESTINATION lib/${PROJECT_NAME}
 )
 
