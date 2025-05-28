@@ -21,8 +21,8 @@ class PoseEstimator(Node):
         # Initialize variables
         self.current_yaw_deg = None
         self.current_scan = None
-        self.room_width = 1.8  # meters
-        self.room_height = 2.3  # meters
+        self.room_width = 3.55  # meters
+        self.room_height = 3.05  # meters
 
     def yaw_callback(self, msg):
         """Store the latest yaw angle in degrees."""
