@@ -23,6 +23,9 @@ class MotorControllerNode(Node):
         self.IN3 = 22  # Right motor forward
         self.IN4 = 23  # Right motor backward
 
+        # Store GPIO availability as instance variable
+        self.gpio_available = GPIO_AVAILABLE
+
         # Motor state tracking
         self.current_command = "stop"
         self.last_command_time = time.time()
@@ -59,7 +62,7 @@ class MotorControllerNode(Node):
 
     def setup_gpio(self):
         """Setup GPIO pins for motor control"""
-        if not GPIO_AVAILABLE:
+        if not self.gpio_available:
             self.get_logger().warn("⚠️  GPIO not available - running in SIMULATION mode")
             return
 
@@ -85,8 +88,8 @@ class MotorControllerNode(Node):
         except Exception as e:
             self.get_logger().error(f"❌ Failed to setup GPIO: {e}")
             self.get_logger().error("🔄 Switching to simulation mode")
-            global GPIO_AVAILABLE
-            GPIO_AVAILABLE = False
+            # Set class attribute instead of global
+            self.gpio_available = False
 
     def motor_command_callback(self, msg):
         """Handle incoming motor commands"""
@@ -119,7 +122,7 @@ class MotorControllerNode(Node):
 
     def move_forward(self):
         """Move robot forward"""
-        if GPIO_AVAILABLE:
+        if self.gpio_available:
             GPIO.output(self.IN1, GPIO.HIGH)  # Left motor forward
             GPIO.output(self.IN2, GPIO.LOW)
             GPIO.output(self.IN3, GPIO.HIGH)  # Right motor forward
@@ -130,7 +133,7 @@ class MotorControllerNode(Node):
 
     def move_backward(self):
         """Move robot backward"""
-        if GPIO_AVAILABLE:
+        if self.gpio_available:
             GPIO.output(self.IN1, GPIO.LOW)   # Left motor backward
             GPIO.output(self.IN2, GPIO.HIGH)
             GPIO.output(self.IN3, GPIO.LOW)   # Right motor backward
@@ -141,7 +144,7 @@ class MotorControllerNode(Node):
 
     def turn_left(self):
         """Turn robot left (anti-clockwise)"""
-        if GPIO_AVAILABLE:
+        if self.gpio_available:
             GPIO.output(self.IN1, GPIO.LOW)   # Left motor stop/slow
             GPIO.output(self.IN2, GPIO.LOW)
             GPIO.output(self.IN3, GPIO.HIGH)  # Right motor forward
@@ -152,7 +155,7 @@ class MotorControllerNode(Node):
 
     def turn_right(self):
         """Turn robot right (clockwise)"""
-        if GPIO_AVAILABLE:
+        if self.gpio_available:
             GPIO.output(self.IN1, GPIO.HIGH)  # Left motor forward
             GPIO.output(self.IN2, GPIO.LOW)
             GPIO.output(self.IN3, GPIO.LOW)   # Right motor stop/slow
@@ -163,7 +166,7 @@ class MotorControllerNode(Node):
 
     def stop_motors(self):
         """Stop all motors"""
-        if GPIO_AVAILABLE:
+        if self.gpio_available:
             GPIO.output(self.IN1, GPIO.LOW)
             GPIO.output(self.IN2, GPIO.LOW)
             GPIO.output(self.IN3, GPIO.LOW)
@@ -202,7 +205,7 @@ class MotorControllerNode(Node):
         self.stop_motors()
 
         # Cleanup GPIO
-        if GPIO_AVAILABLE:
+        if self.gpio_available:
             try:
                 GPIO.cleanup()
                 self.get_logger().info("✅ GPIO pins cleaned up")
