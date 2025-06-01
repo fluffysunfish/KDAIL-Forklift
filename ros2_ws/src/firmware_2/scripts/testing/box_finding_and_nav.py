@@ -115,19 +115,12 @@ class RobotNavigationController(Node):
         max_difference = differences_array[max_difference_idx]
         original_point_idx = difference_indices[max_difference_idx]
 
-        # Calculate angle - FIXED CALCULATION
+        # Calculate angle and distances
         angle_increment_deg = math.degrees(self.angle_increment)
         detected_angle = original_point_idx * angle_increment_deg
 
         # Convert to actual LiDAR angle (from angle_min)
         actual_lidar_angle = math.degrees(self.lidar_angle_min) + detected_angle
-
-        # FIXED: Apply the angle correction you mentioned
-        # If detected angle is positive (e.g., 127°), convert to 360-127 = 233°
-        if actual_lidar_angle > 0:
-            corrected_lidar_angle = 360.0 - actual_lidar_angle
-        else:
-            corrected_lidar_angle = abs(actual_lidar_angle)
 
         distance1 = self.distances_array[original_point_idx]
         distance2 = self.distances_array[original_point_idx + 10]
@@ -139,14 +132,13 @@ class RobotNavigationController(Node):
         threshold = mean_diff + 1.5 * std_diff
 
         if max_difference > threshold and target_distance > self.distance_tolerance:
-            self.target_angle = corrected_lidar_angle  # Use corrected angle
+            self.target_angle = actual_lidar_angle
             self.target_distance = target_distance - self.distance_tolerance  # Stop before hitting
 
             self.get_logger().info("🎯 " + "=" * 50)
             self.get_logger().info("📦 BOX DETECTED!")
             self.get_logger().info("🎯 " + "=" * 50)
-            self.get_logger().info(f"📐 Raw detected angle: {actual_lidar_angle:.1f}°")
-            self.get_logger().info(f"📐 Corrected LiDAR angle: {corrected_lidar_angle:.1f}°")
+            self.get_logger().info(f"📐 Detected at LiDAR angle: {actual_lidar_angle:.1f}°")
             self.get_logger().info(f"📏 Distance: {target_distance:.2f}m")
             self.get_logger().info(f"🔄 Need to rotate to align with {self.target_lidar_angle}°")
             self.get_logger().info(f"⚡ Max difference value: {max_difference:.3f}")
