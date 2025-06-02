@@ -146,7 +146,7 @@ class MotorControllerNode(Node):
         """Turn robot left (anti-clockwise)"""
         if self.gpio_available:
             GPIO.output(self.IN1, GPIO.LOW)   # Left motor stop/slow
-            GPIO.output(self.IN2, GPIO.LOW)
+            GPIO.output(self.IN2, GPIO.HIGH)
             GPIO.output(self.IN3, GPIO.HIGH)  # Right motor forward
             GPIO.output(self.IN4, GPIO.LOW)
             self.get_logger().info("↺ Turning LEFT (Anti-clockwise)")
@@ -159,7 +159,7 @@ class MotorControllerNode(Node):
             GPIO.output(self.IN1, GPIO.HIGH)  # Left motor forward
             GPIO.output(self.IN2, GPIO.LOW)
             GPIO.output(self.IN3, GPIO.LOW)   # Right motor stop/slow
-            GPIO.output(self.IN4, GPIO.LOW)
+            GPIO.output(self.IN4, GPIO.HIGH)
             self.get_logger().info("↻ Turning RIGHT (Clockwise)")
         else:
             self.get_logger().info("↻ SIMULATED: Turning RIGHT (Clockwise)")

@@ -3,3 +3,5 @@ ros2_ws/install/
 ros2_ws/log/
 .ropeproject
 ros2_ws/src/.ropeproject
+webserver_ros/node_modules/
+webserver_ros/package-lock.json

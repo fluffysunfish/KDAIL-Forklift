@@ -456,11 +456,14 @@
 
                 <!-- Camera Feed -->
                 <div class="card">
-                    <h2>Camera Feed</h2>
-                    <div class="camera-feed" id="cameraFeed">
-                        <p>Waiting for camera feed...</p>
-                    </div>
-                </div>
+                                    <h2>Camera Feed</h2>
+                                    <div class="camera-feed">
+                                        <div id="cameraFeed">
+                                            <img id="feedImage" style="width: 100%; display: none;" alt="Camera Feed">
+                                            <p id="waitingMessage">Waiting for camera feed...</p>
+                                        </div>
+                                    </div>
+                                </div>
             </div>
 
             <div class="status-bar">
@@ -511,16 +514,21 @@
             });
 
             socket.on("imageUpdate", (imageData) => {
-                const cameraFeed = document.getElementById("cameraFeed");
-                if (
-                    imageData.encoding === "rgb8" ||
-                    imageData.encoding === "bgr8"
-                ) {
-                    cameraFeed.innerHTML = `<img src="data:image/jpeg;base64,${imageData.data}" alt="Camera Feed">`;
-                } else {
-                    cameraFeed.innerHTML = "<p>Unsupported image format</p>";
-                }
-            });
+                           const feedImage = document.getElementById("feedImage");
+                           const waitingMessage = document.getElementById("waitingMessage");
+                           if (
+                               imageData.encoding === "rgb8" ||
+                               imageData.encoding === "bgr8"
+                           ) {
+                               feedImage.src = `data:image/jpeg;base64,${imageData.data}`;
+                               feedImage.style.display = "block";
+                               waitingMessage.style.display = "none";
+                           } else {
+                               feedImage.style.display = "none";
+                               waitingMessage.textContent = "Unsupported image format";
+                               waitingMessage.style.display = "block";
+                           }
+                       });
 
             // Update minimap
             function updateMinimap(pose) {

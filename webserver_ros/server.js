@@ -63,7 +63,7 @@ async function initROS2() {
     // Image subscriber (assuming sensor_msgs/Image)
     const imageSubscriber = node.createSubscription(
       "sensor_msgs/msg/Image",
-      "/camera/image_raw",
+      "/image",
       (msg) => {
         // Convert ROS image to base64 for web display
         try {
