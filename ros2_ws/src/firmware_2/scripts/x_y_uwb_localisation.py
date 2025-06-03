@@ -2,7 +2,7 @@
 
 import rclpy
 from rclpy.node import Node
-from std_msgs.msg import Float32MultiArray, Float32
+from std_msgs.msg import Float32MultiArray, Float64
 from geometry_msgs.msg import Point
 import numpy as np
 import math
@@ -15,9 +15,9 @@ class UWBLocalizationNode(Node):
         # UWB Anchor positions (x, y) in cm
         self.anchors = {
             'd1': np.array([0.0, 0.0]),      # (0, 0)
-            'd2': np.array([355.0, 0.0]),    # (180, 0)
-            'd3': np.array([0.0, 305.0]),    # (0, 220)
-            'd4': np.array([355.0, 305.0])   # (180, 220)
+            'd2': np.array([95.0, 0.0]),    # (180, 0)
+            'd3': np.array([0.0, 65.0]),    # (0, 220)
+            'd4': np.array([95.0, 65.0])   # (180, 220)
         }
 
         # Subscribers
@@ -29,7 +29,7 @@ class UWBLocalizationNode(Node):
         )
 
         self.imu_subscriber = self.create_subscription(
-            Float32,
+            Float64,
             '/imu_1_yaw',
             self.imu_callback,
             10
@@ -232,7 +232,7 @@ class UWBLocalizationNode(Node):
             return
 
         # Check if all distance values are valid
-        if any(d <= 0 for d in self.current_distances):
+        if any(d < 0 for d in self.current_distances):
             self.get_logger().warn("Invalid distance values received")
             return
 

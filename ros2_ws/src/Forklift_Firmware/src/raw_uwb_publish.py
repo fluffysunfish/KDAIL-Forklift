@@ -107,8 +107,11 @@ class UWBNode(Node):
     def __init__(self):
         super().__init__('uwb_distance_node')
 
-        # Create publisher for filtered distances
-        self.publisher_ = self.create_publisher(Float32MultiArray, '/uwb_raw_data', 10)
+        # Create publisher for filtered distances (Kalman filtered)
+        self.kalman_publisher_ = self.create_publisher(Float32MultiArray, '/uwb_raw_data', 10)
+
+        # Create publisher for raw unfiltered distances
+        self.raw_publisher_ = self.create_publisher(Float32MultiArray, '/raw_uwb_very_raw', 10)
 
         # Kalman filter parameters (fixed constants)
         self.kalman_params = KalmanParams(
@@ -130,6 +133,9 @@ class UWBNode(Node):
 
         # Current filtered distances
         self.filtered_distances = [0.0, 0.0, 0.0, 0.0]
+
+        # Current raw distances
+        self.raw_distances = [0.0, 0.0, 0.0, 0.0]
 
         # Regex patterns for 4 anchors
         self.distance_patterns = [
@@ -244,8 +250,18 @@ class UWBNode(Node):
                         raw_distances = self.parse_distances(message)
                         current_time = time.time()
 
+                        # Update raw distances and publish them
+                        raw_updated = False
+                        for i, raw_dist in enumerate(raw_distances):
+                            if raw_dist is not None:
+                                self.raw_distances[i] = raw_dist
+                                raw_updated = True
+
+                        if raw_updated:
+                            self.publish_raw_distances()
+
                         # Apply Kalman filter to each distance
-                        updated = False
+                        kalman_updated = False
                         for i, raw_dist in enumerate(raw_distances):
                             if raw_dist is not None:
                                 filtered_dist = self.kalman_filters[i].process_measurement(
@@ -253,25 +269,40 @@ class UWBNode(Node):
                                 )
                                 if filtered_dist is not None:
                                     self.filtered_distances[i] = filtered_dist
-                                    updated = True
+                                    kalman_updated = True
 
                         # Publish filtered distances if any were updated
-                        if updated:
-                            self.publish_distances()
+                        if kalman_updated:
+                            self.publish_kalman_distances()
 
         except Exception as e:
             self.get_logger().error(f"Error reading serial data: {e}")
 
-    def publish_distances(self):
-        """Publish filtered distances to ROS topic"""
+    def publish_raw_distances(self):
+        """Publish raw unfiltered distances to ROS topic"""
+        msg = Float32MultiArray()
+        msg.data = [float(d) for d in self.raw_distances]
+
+        self.raw_publisher_.publish(msg)
+
+        # Log the published raw data
+        self.get_logger().info(
+            f"Published RAW distances: d1={self.raw_distances[0]:.1f}, "
+            f"d2={self.raw_distances[1]:.1f}, "
+            f"d3={self.raw_distances[2]:.1f}, "
+            f"d4={self.raw_distances[3]:.1f}"
+        )
+
+    def publish_kalman_distances(self):
+        """Publish Kalman filtered distances to ROS topic"""
         msg = Float32MultiArray()
         msg.data = [float(d) for d in self.filtered_distances]
 
-        self.publisher_.publish(msg)
+        self.kalman_publisher_.publish(msg)
 
-        # Log the published data
+        # Log the published filtered data
         self.get_logger().info(
-            f"Published distances: d1={self.filtered_distances[0]:.1f}, "
+            f"Published KALMAN distances: d1={self.filtered_distances[0]:.1f}, "
             f"d2={self.filtered_distances[1]:.1f}, "
             f"d3={self.filtered_distances[2]:.1f}, "
             f"d4={self.filtered_distances[3]:.1f}"

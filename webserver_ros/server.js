@@ -32,7 +32,7 @@ async function initROS2() {
       "/goto_pose/xy",
     );
     const gotoYawPublisher = node.createPublisher(
-      "std_msgs/msg/Float32",
+      "std_msgs/msg/Float64",
       "/goto_pose/yaw",
     );
     const motorCommandsPublisher = node.createPublisher(
@@ -52,7 +52,7 @@ async function initROS2() {
     );
 
     const imuYawSubscriber = node.createSubscription(
-      "std_msgs/msg/Float32",
+      "std_msgs/msg/Float64",
       "/imu_1_yaw",
       (msg) => {
         currentPose.yaw = msg.data;

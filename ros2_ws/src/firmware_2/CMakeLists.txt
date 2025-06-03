@@ -29,6 +29,7 @@ install(
     scripts/testing/motor_speed_calc.py
     scripts/testing/new_box_nav.py
     scripts/x_y_uwb_localisation.py
+    scripts/uwb_position_calc.py
     DESTINATION lib/${PROJECT_NAME}
 )
 
