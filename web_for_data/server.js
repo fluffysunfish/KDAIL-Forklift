@@ -16,15 +16,9 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
-// Serve the UWB data page
-app.get("/uwb_data", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "uwb_data.html"));
-});
-x;
-
 let node;
 let currentPose = { x: 0, y: 0, yaw: 0 };
-let mapBounds = { x_max: 229, y_max: 335 }; // Updated to match anchor positions
+let mapBounds = { x_max: 700, y_max: 702 }; // Match anchor positions
 
 // Initialize ROS2
 async function initROS2() {
@@ -75,26 +69,6 @@ async function initROS2() {
           io.emit("uwbDataUpdate", uwbData);
         } catch (error) {
           console.error("Error parsing UWB data:", error);
-        }
-      },
-    );
-
-    // Image subscriber (assuming sensor_msgs/Image)
-    const imageSubscriber = node.createSubscription(
-      "sensor_msgs/msg/Image",
-      "/image",
-      (msg) => {
-        // Convert ROS image to base64 for web display
-        try {
-          const base64Image = Buffer.from(msg.data).toString("base64");
-          io.emit("imageUpdate", {
-            data: base64Image,
-            encoding: msg.encoding,
-            width: msg.width,
-            height: msg.height,
-          });
-        } catch (error) {
-          console.error("Error processing image:", error);
         }
       },
     );
@@ -150,10 +124,11 @@ async function initROS2() {
   }
 }
 
-// Start server
+// Start server with custom address
 const PORT = process.env.PORT || 3000;
-server.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+const HOST = process.env.HOST || "0.0.0.0"; // Default to all interfaces
+server.listen(PORT, HOST, () => {
+  console.log(`Server running on http://${HOST}:${PORT}`);
   initROS2();
 });
 

@@ -8,14 +8,20 @@
     "dev": "nodemon server.js"
   },
   "dependencies": {
-    "express": "^4.18.2",
-    "socket.io": "^4.7.2",
-    "rclnodejs": "^0.21.0"
+    "express": "^4.21.2",
+    "rclnodejs": "^0.21.4",
+    "socket.io": "^4.8.1"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
   },
-  "keywords": ["ros2", "robot", "web", "control", "interface"],
+  "keywords": [
+    "ros2",
+    "robot",
+    "web",
+    "control",
+    "interface"
+  ],
   "author": "Your Name",
   "license": "MIT"
 }
