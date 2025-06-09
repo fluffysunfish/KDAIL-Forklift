@@ -17,9 +17,9 @@ class UWBPositionCalculator(Node):
         # Anchor positions (in cm)
         self.anchor_positions = {
             1: (0.0, 0.0),      # Anchor 1 at origin
-            2: (698.0, 0.0),    # Anchor 2 at (Xmax, 0)
-            3: (700.0, 698.0),   # Anchor 3 at (Xmax, Ymax)
-            4: (0.0, 702.0)      # Anchor 4 at (0, Ymax)
+            2: (700.0, 0.0),    # Anchor 2 at (Xmax, 0)
+            3: (700.0, 700.0),   # Anchor 3 at (Xmax, Ymax)
+            4: (0.0, 700.0)      # Anchor 4 at (0, Ymax)
         }
 
         # Subscribe to both UWB topics

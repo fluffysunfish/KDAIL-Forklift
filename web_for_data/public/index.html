@@ -491,6 +491,11 @@
                             Set Orientation
                         </button>
                     </div>
+                    <div style="text-align: center; margin-top: 15px;">
+                        <button class="btn" id="stopNavBtn" onclick="stopNavigation()" style="background-color: #f44336;">
+                            Stop Navigation
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -962,6 +967,24 @@
                 });
 
                 socket.emit("motorCommand", "stop");
+            }
+            
+            function stopNavigation() {
+                // Stop the robot
+                socket.emit("motorCommand", "stop");
+                
+                // Visual feedback for button press
+                const btn = document.getElementById("stopNavBtn");
+                btn.style.backgroundColor = "#b71c1c";
+                setTimeout(() => {
+                    btn.style.backgroundColor = "#f44336";
+                }, 300);
+                
+                // Update status
+                document.getElementById("connectionStatus").innerHTML = "Navigation stopped by user";
+                
+                // You could also emit a special stop navigation command if needed
+                // socket.emit("stopNavigation", true);
             }
 
             // Keyboard controls
