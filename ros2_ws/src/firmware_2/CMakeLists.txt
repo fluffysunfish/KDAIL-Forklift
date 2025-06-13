@@ -18,18 +18,18 @@ find_package(tf2_geometry_msgs REQUIRED)
 install(
   PROGRAMS
     scripts/slam_mapper.py
-    scripts/transform_publisher.py
-    scripts/static_slam.py
-    scripts/updated_static_slam.py
-    scripts/testing/revised_updated_static_slam.py
-    scripts/testing/pose_publisher.py
-    scripts/testing/pose_through_lidar.py
+    # scripts/transform_publisher.py
+    # scripts/static_slam.py
+    # scripts/updated_static_slam.py
+    # scripts/testing/revised_updated_static_slam.py
+    # scripts/testing/pose_publisher.py
+    # scripts/testing/pose_through_lidar.py
     # scripts/testing/pose_through_lidar_w_mir_fix.py
-    scripts/testing/box_finding_and_nav.py
-    scripts/testing/motor_speed_calc.py
-    scripts/testing/new_box_nav.py
-    scripts/x_y_uwb_localisation.py
-    scripts/uwb_position_calc.py
+    # scripts/testing/box_finding_and_nav.py
+    scripts/motor_speed_calc.py
+    # scripts/testing/new_box_nav.py
+    # scripts/x_y_uwb_localisation.py
+    # scripts/uwb_position_calc.py
     scripts/uwb_for_web_position.py
     scripts/navigation/goal_navigator.py
     DESTINATION lib/${PROJECT_NAME}
