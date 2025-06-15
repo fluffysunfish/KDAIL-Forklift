@@ -57,7 +57,7 @@ The robot is instructed via an intuitive web-based interface backed by a ROS-pow
 
 ---
 
-## 🗂️ Repository Structure
+##  Repository Structure
 
 ```bash
 KDAIL-Forklift/
