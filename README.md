@@ -2,7 +2,7 @@
 
 **KDAIL-Forklift** is an intelligent autonomous forklift robot designed as part of a warehouse automation project, built in collaboration with <a href="https://krishnaallied.com/">KDAIL</a>.
 
-# Breif
+# Brief
 
 # Problem statement
 
@@ -20,7 +20,7 @@ Existing solutions are often :
 Moreover, enabling robots to navigate dynamic, cluttered indoor spaces while accurately locating and manipulating goods remains an open problem, especially for small- to medium-scale industries seeking low-cost, swarm-based intelligent automation.
 
 ---
-# Proposed soltuion 
+# Proposed solution 
 
 We addres these challenges with an end-to-end, modular, and reproducible robotics system tailored for indoor defence warehouse logistics. At its core, the robot fuses <b>UWB-based odometry, 2D LiDAR,</b> and <b>ArUco marker</b> detection to achieve robust SLAM and localization, even in GPS-denied and visually sparse environments. It is capable of autonomously navigating the environment, identifying loads, and executing pick-and-place operations using a forklift actuation mechanism.
 The robot is instructed via an intuitive web-based interface backed by a ROS-powered backend, allowing real-time monitoring, control, and task assignment. All hardware—from the custom chassis to sensing and actuation—is designed to be inexpensive and in-house, enabling widespread replication and adoption in budget-constrained setups.
