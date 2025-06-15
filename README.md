@@ -64,6 +64,6 @@ KDAIL-Forklift/
 ├── aruco/                  # Scripts to take camera feed, check aruco markers
 ├── bot_controls/           # Scripts to do teleop and control crane mechanism of the bot
 ├── ros2_ws/                # Ros workspace of the repository, contains all the nodes and topics created
-├── web_control/       # Inuitive UI for over the air communication/control of the bot
+├── web_control/            # Inuitive UI for over the air communication/control of the bot
 ├── README.md               # You're here!
   
