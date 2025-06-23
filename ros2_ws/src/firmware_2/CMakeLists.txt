@@ -32,6 +32,7 @@ install(
     # scripts/uwb_position_calc.py
     scripts/uwb_for_web_position.py
     scripts/navigation/goal_navigator.py
+    scripts/navigation/goal_navigator_2.py
     DESTINATION lib/${PROJECT_NAME}
 )
 

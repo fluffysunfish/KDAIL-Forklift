@@ -1,0 +1,7 @@
+[manifest]
+path = sit
+file = west.yml
+
+[zephyr]
+base = zephyr
+

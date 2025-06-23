@@ -137,12 +137,12 @@ class UWBNode(Node):
         # Current raw distances
         self.raw_distances = [0.0, 0.0, 0.0, 0.0]
 
-        # Regex patterns for 4 anchors
+        # Regex patterns for 4 anchors with new JSON format
         self.distance_patterns = [
-            re.compile(r'mac_address=0x0001.*?distance\[cm\]=(\d+)'),  # d1
-            re.compile(r'mac_address=0x0002.*?distance\[cm\]=(\d+)'),  # d2
-            re.compile(r'mac_address=0x0003.*?distance\[cm\]=(\d+)'),  # d3
-            re.compile(r'mac_address=0x0004.*?distance\[cm\]=(\d+)')   # d4
+            re.compile(r'"Addr":"0x0001"[^}]*"D_cm"\s*:\s*(\d+)'),  # d1
+            re.compile(r'"Addr":"0x0002"[^}]*"D_cm"\s*:\s*(\d+)'),  # d2
+            re.compile(r'"Addr":"0x0003"[^}]*"D_cm"\s*:\s*(\d+)'),  # d3
+            re.compile(r'"Addr":"0x0004"[^}]*"D_cm"\s*:\s*(\d+)')   # d4
         ]
 
         # Initialize serial connection
@@ -210,7 +210,7 @@ class UWBNode(Node):
                 try:
                     distance = float(match.group(1))
                     # Basic sanity check
-                    if 5 <= distance <= 1000:  # 5cm to 10m range
+                    if 5 <= distance <= 10000:  # 5cm to 100m range
                         distances[i] = distance
                 except ValueError:
                     continue
@@ -226,23 +226,50 @@ class UWBNode(Node):
             if self.ser.in_waiting > 0:
                 data = self.ser.read_all().decode('utf-8', errors='ignore')
 
-                # Process data if it contains UWB information
-                if 'SESSION_INFO_NTF:' in data:
-                    # Find complete messages
+                # Process data if it contains JSON format with Block and results
+                if '"Block":' in data and '"results":' in data:
+                    # Find complete JSON messages
                     messages = []
                     start_pos = 0
 
                     while True:
-                        start = data.find('SESSION_INFO_NTF:', start_pos)
+                        start = data.find('{"Block":', start_pos)
                         if start == -1:
                             break
 
-                        end = data.find('}', start)
-                        if end == -1:
-                            break
+                        brace_count = 0
+                        end = start
+                        in_string = False
+                        escape_next = False
 
-                        messages.append(data[start:end+1])
-                        start_pos = end + 1
+                        for i, char in enumerate(data[start:]):
+                            pos = start + i
+                            if escape_next:
+                                escape_next = False
+                                continue
+
+                            if char == '\\':
+                                escape_next = True
+                                continue
+
+                            if char == '"' and not escape_next:
+                                in_string = not in_string
+                                continue
+
+                            if not in_string:
+                                if char == '{':
+                                    brace_count += 1
+                                elif char == '}':
+                                    brace_count -= 1
+                                    if brace_count == 0:
+                                        end = pos
+                                        break
+
+                        if brace_count == 0:
+                            messages.append(data[start:end+1])
+                            start_pos = end + 1
+                        else:
+                            break
 
                     # Process the last complete message
                     if messages:
